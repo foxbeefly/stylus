@@ -93,15 +93,20 @@
 	<body>
 		<div data-role="page" id="indexPage">
 			<div data-role="header">
+				<a href="#indexPage" data-icon="info" data-iconpos="notext" class="ui-btn-left" data-transition="flip">About</a>
 				<h1>PhoneGap Test</h1>
-				<a href="index-dialog.html" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-right" data-transition="flip">About</a>
+				<a href="#infoPage" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-right" data-transition="flip">About</a>
 			</div>
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#calendarPage" class="ui-btn-active ui-state-persist">Calendar</a></li>
+					<li><a href="#calendarPage">Calendar</a></li>
 					<li><a href="#resultsPage">Results</a></li>
 				</ul>
 			</div><!-- /navbar -->
+			<div data-role="content">	
+				<p>Home contents</p>
+			</div>			
+			
 			<div data-role="content">	
 				<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
 				<p><a href="#" onclick="buzzDevice(); return false;">Buzz</a></p>
@@ -112,12 +117,13 @@
 		</div>
 		<div data-role="page" id="calendarPage">
 			<div data-role="header">
+				<a href="#indexPage" data-icon="info" data-iconpos="notext" class="ui-btn-left" data-transition="flip">About</a>
 				<h1>Calendar</h1>
 				<a href="index-dialog.html" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-right" data-transition="flip">About</a>
 			</div>
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#calendarPage" class="ui-btn-active ui-state-persist">Calendar</a></li>
+					<li><a href="#calendarPage">Calendar</a></li>
 					<li><a href="#resultsPage">Results</a></li>
 				</ul>
 			</div><!-- /navbar -->
@@ -130,17 +136,30 @@
 		</div>
 		<div data-role="page" id="resultsPage">
 			<div data-role="header">
+				<a href="#indexPage" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-left" data-transition="flip">About</a>
 				<h1>Results</h1>
 				<a href="index-dialog.html" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-right" data-transition="flip">About</a>
 			</div>
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#calendarPage" class="ui-btn-active ui-state-persist">Calendar</a></li>
+					<li><a href="#calendarPage">Calendar</a></li>
 					<li><a href="#resultsPage">Results</a></li>
 				</ul>
 			</div><!-- /navbar -->
 			<div data-role="content">	
 				<p>Results page</p>
+			</div>
+			<div data-role="footer">
+				<h4><a href="http://www.stylus.co.za" target="_blank" title="stylus">stylus</a></h4>
+			</div>			
+		</div>
+		<div data-role="dialog" id="infoPage">
+			<div data-role="header">
+				<h1>About</h1>
+				<a href="index-dialog.html" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-right" data-transition="flip">About</a>
+			</div>
+			<div data-role="content">	
+				<p>Info dialog content</p>
 			</div>
 			<div data-role="footer">
 				<h4><a href="http://www.stylus.co.za" target="_blank" title="stylus">stylus</a></h4>
