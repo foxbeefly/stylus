@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Notification Example</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.min.js"></script>	
+	    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	    <script type="text/javascript" charset="utf-8">
+		var isMobile = {
+		    Android: function() {
+		        return navigator.userAgent.match(/Android/i);
+		    },
+		    BlackBerry: function() {
+		        return navigator.userAgent.match(/BlackBerry/i);
+		    },
+		    iOS: function() {
+		        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		    },
+		    Opera: function() {
+		        return navigator.userAgent.match(/Opera Mini/i);
+		    },
+		    Windows: function() {
+		        return navigator.userAgent.match(/IEMobile/i);
+		    },
+		    any: function() {
+		        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		    }
+		};
+		if(isMobile.any()) {
+		   //some code...
+		}	
+	    // Wait for device API libraries to load
+	    //
+	    document.addEventListener("deviceready", onDeviceReady, false);
+	    
+	    // make the device buzz
+	    //
+	    function buzzDevice() {
+	        if (isMobile.any()) {
+		         navigator.notification.vibrate(2500);
+	        } else {
+		         alert("No buzz unless Device");
+		    }
+	    }
+	
+	    // menu button
+	    //
+	    function onMenuKeyDown() {
+	        if (isMobile.any()) {
+		         navigator.notification.vibrate(2500);
+		         navigator.notification.alert(
+		            'Menu button!',  // message
+		            alertDismissed,         // callback
+		            'Game Over',            // title
+		            'Done'                  // buttonName
+		        ); 	         
+	        } else {
+		         alert("Menu button");
+		    }
+	    }      
+	
+	    // device APIs are available
+	    //
+	    function onDeviceReady() {
+	        buzzDevice();
+	        document.addEventListener("menubutton", onMenuKeyDown, false);
+	    }
+	
+	    // alert dialog dismissed
+	    function alertDismissed() {
+	        // do something
+	    }
+	
+	    // Show a custom alertDismissed
+	    //
+	    function showAlert( message, title ) {
+	        if (isMobile.any()) {
+		         navigator.notification.alert(
+		            'You are the winner!',  // message
+		            alertDismissed,         // callback
+		            'Game Over',            // title
+		            'Done'                  // buttonName
+		        );       
+	        } else {
+		         alert("Clicked but not Device");
+		    }
+	    }
+	  
+	    </script>
+	</head>
+	<body>
+		<div data-role="page" id="indexPage">
+			<div data-role="header">
+				<h1>PhoneGap Test</h1>
+				<a href="index-dialog.html" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-right" data-transition="flip">About</a>
+			</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#calendarPage" class="ui-btn-active ui-state-persist">Calendar</a></li>
+					<li><a href="#resultsPage">Results</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<div data-role="content">	
+				<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+				<p><a href="#" onclick="buzzDevice(); return false;">Buzz</a></p>
+			</div>
+			<div data-role="footer">
+				<h4>// stylus //</h4>
+			</div>			
+		</div>
+	</body>
+</html>

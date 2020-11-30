@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "co.za.stylus.pgtest"
+        versionCode = "1"
+        version     = "0.0.1">
+ 
+	<name>pgtest</name>
+ 
+	<description>
+		basic PhoneGap Build test
+	</description>
+ 
+	<author href="http://www.stylus.co.za" email="david@stylus.co.za">
+		David Fox      
+	</author>
+
+	<icon src="icon.png" />
+
+	<plugin name="Notification" value="org.apache.cordova.Notification"/>
+
+</widget>
