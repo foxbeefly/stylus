@@ -9,6 +9,7 @@
 	    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	    <script type="text/javascript" charset="utf-8">
 		var isMobile = {
+			alert(navigator.userAgent);
 		    Android: function() {
 		        return navigator.userAgent.match(/Android/i);
 		    },
@@ -41,7 +42,7 @@
 	        if (isMobile.any()) {
 		         navigator.notification.vibrate(2500);
 	        } else {
-		         alert("No buzz unless Device");
+		         alert("No buzz unless " + " Device");
 		    }
 	    }
 	
